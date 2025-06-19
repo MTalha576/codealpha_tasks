@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body{
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            background-color: black;
+            color: white;
+            padding: 40px;
+        }
+        .Gallery{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            padding: 10px;
+        }
+        .Gallery img{
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .Gallery img:hover{
+            transform: scale(1.1);
+            transition: 0.5s;
+            border: 2px solid blue;
+        }
+        #Filters{
+            text-align: left;
+            padding: 10px;
+        }
+        button{
+            font-size: large;
+            width: 100px;
+            height: 50px;
+            background-color: black;
+            color: white;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:hover{
+            transform: scale(1.1);
+            transition: 0.5s;
+            background-color: blue;
+        }
+
+        .Lightbox{
+            display: none;
+            position: fixed;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .Lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            width: 400px;
+            height: 400px;
+        }
+
+        .caption{
+            color: white;
+            font-size: large;
+            padding: 10px;
+        }
+
+        .close, .previous, .next {
+            color: white;
+            position: absolute;
+            top: 35%;
+            font-size: 50px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .close{
+            top: 25px;
+            right: 35px;
+        }
+
+        .next{
+            right: 0;
+        }
+
+        .previous{
+            left: 0;
+        }
+
+        .close:hover{
+            display: block;
+            background-color: rgb(234, 63, 57);
+        }
+
+        .next:hover{
+            display: block;
+            background-color: gray;
+        }
+
+        .previous:hover{
+            display: block;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>IMAGE GALLERY</h1>
+    <div id="Filters">
+        <button onclick="Filterimage('all')">All</button>
+        <button onclick="Filterimage('nature')">Nature</button>
+        <button onclick="Filterimage('animals')">Animal</button>
+        <button onclick="Filterimage('Human')">Human</button>
+        <button onclick="Filterimage('city')">City</button>
+    </div>
+    
+    <div class="Gallery">
+        <img src="20 Pics/1.jpeg" data-category="nature" data-caption="Picture Number 1">
+        <img src="20 Pics/2.jpeg" data-category="Human" data-caption="Picture Number 2">
+        <img src="20 Pics/3.jpeg" data-category="animals" data-caption="Picture Number 3">
+        <img src="20 Pics/4.jpeg" data-category="city" data-caption="Picture Number 4">
+        <img src="20 Pics/5.jpeg" data-category="nature" data-caption="Picture Number 5">
+        <img src="20 Pics/6.jpeg" data-category="animals" data-caption="Picture Number 6">
+        <img src="20 Pics/7.jpeg" data-category="city" data-caption="Picture Number 7">
+        <img src="20 Pics/8.jpeg" data-category="animals" data-caption="Picture Number 8">
+        <img src="20 Pics/9.jpeg" data-category="nature" data-caption="Picture Number 9">
+        <img src="20 Pics/10.jpeg" data-category="nature" data-caption="Picture Number 10">
+        <img src="20 Pics/11.jpeg" data-category="Human" data-caption="Picture Number 11">
+        <img src="20 Pics/12.jpeg" data-category="Human" data-caption="Picture Number 12">
+        <img src="20 Pics/13.jpeg" data-category="city" data-caption="Picture Number 13">
+        <img src="20 Pics/14.jpeg" data-category="city" data-caption="Picture Number 14">
+        <img src="20 Pics/15.jpeg" data-category="nature" data-caption="Picture Number 15">
+        <img src="20 Pics/16.jpeg" data-category="nature" data-caption="Picture Number 16">
+        <img src="20 Pics/17.jpeg" data-category="Human" data-caption="Picture Number 17">
+        <img src="20 Pics/18.jpeg" data-category="city" data-caption="Picture Number 18">
+        <img src="20 Pics/19.jpeg" data-category="Human" data-caption="Picture Number 19">
+        <img src="20 Pics/20.jpeg" data-category="Human" data-caption="Picture Number 20">
+    </div>
+
+    <div class="Lightbox" id="lightbox">
+        <span class="close">&times;</span>
+        <span class="previous">&#10094;</span>
+        <span class="next">&#10095;</span>
+        <img class="Lightbox-content" id="lightbox-img">
+        <div class="caption" id="lightbox-caption"></div>
+
+    </div>
+
+    <script>
+        const galleryimages = document.querySelectorAll(".Gallery img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxtext = document.getElementById("lightbox-caption");
+        const crossbtn = document.querySelector(".close");
+        const previousbtn = document.querySelector(".previous");
+        const nextbtn = document.querySelector(".next");
+
+        let currentIndex = 0;
+        
+        galleryimages.forEach((img, index) => {
+            img.addEventListener("click", () => {
+                currentIndex = index;
+                showLightbox(img.src, img.getAttribute("data-caption"));
+            });
+        });
+
+        function Filterimage(category){
+            galleryimages.forEach((img) => {
+                const imgCategory = img.getAttribute("data-category");
+                if (category === "all" || imgCategory === category) {
+                    img.style.display = "inline-block";
+                } else {
+                    img.style.display = "none";
+                }
+            });
+        }
+
+        function showLightbox(src, caption){
+            lightbox.style.display = "block";
+            lightboxImg.src = src;
+            lightboxtext.textContent = caption;
+        }
+
+        crossbtn.addEventListener("click", () => {
+            lightbox.style.display = "none";
+        });
+
+        nextbtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % galleryimages.length;
+            const nextimg = galleryimages[currentIndex];
+            lightboxImg.src = nextimg.src;
+            lightboxtext.textContent = nextimg.getAttribute("data-caption");
+        });
+
+        previousbtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1) % galleryimages.length;
+            const previousimg = galleryimages[currentIndex];
+            lightboxImg.src = previousimg.src;
+            lightboxtext.textContent = previousimg.getAttribute("data-caption");
+        });
+
+        document.addEventListener("keydown", (a) => {
+            if(lightbox.style.display === "block"){
+                if(a.key === "ArrowRight"){
+                    nextbtn.click();
+                }else if(a.key === "ArrowLeft"){
+                    previousbtn.click();
+                }else if(a.key === "Escape"){
+                    crossbtn.click();
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Hafiz Talha</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <style>
+    body {
+      font-size: 1.15rem;
+      font-family: Arial, sans-serif;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      background-color: #000;
+      color: #fff;
+      padding: 12px 28px;
+      border: none;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #fff;
+      color: #000;
+      border: 2px solid #000;
+    }
+
+    .section .container ul,
+    .section .container p {
+      text-align: justify;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
+    .section .container h3,
+    .section .container h4 {
+      text-align: left;
+      margin-left: 5%;
+      margin-right: 5%;
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-left: 4px solid #000;
+      color: #111;
+    }
+
+    .section .container h1,
+    .section .container h2 {
+      text-align: center;
+      color: #000;
+      font-size: 2.4rem;
+      margin-top: 40px;
+      text-transform: uppercase;
+      border-bottom: 3px solid #000;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .project {
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .project img {
+      display: block;
+      margin: 20px auto;
+      width: 85%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    h4 {
+      font-size: 1.35rem;
+      font-weight: bold;
+    }
+
+    #contact p {
+      text-align: center;
+    }
+
+    .social-icons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: black;
+      font-size: 1.5rem;
+      transition: background-color 0.6s ease, color 0.6s ease;
+      padding: 5px;
+      border-radius: 50%;
+      background-color: transparent;
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      color: white;
+      background-color: black;
+    }
+
+    footer nav a {
+      font-weight: bold;
+      margin: 0 10px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- rest of the document remains unchanged -->
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header / Home Section -->
+  <header id="home" class="section">
+    <div class="container">
+      <h1 style="text-align: center; font-size: 2.8rem; margin-bottom: 10px;">Welcome to My Portfolio</h1>
+      <p style="text-align: center;">I’m <strong>Hafiz Talha</strong>, a passionate Developer and SEO Enthusiast.</p>
+      <div style="text-align: center;">
+        <img src="images/profile_copy.jpg" alt="Profile Photo"
+          style="width: 250px; height: 250px; border-radius: 50%; object-fit: cover;" />
+      </div>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </header>
+
+  <!-- About Me -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I am currently a BS Computer Science student in my 4th semester at the University of Central Punjab. I
+        completed my Matriculation from Anmol School and pursued FSC Pre-Engineering from Oxley College.</p>
+      <p>My passion lies in both <strong>Coding</strong> and <strong>SEO Outreach</strong>. I love building modern and
+        efficient web solutions and enjoy connecting with people through strategic and impactful outreach campaigns.</p>
+      <p>I constantly challenge myself to learn new technologies, and I thrive in environments that encourage curiosity,
+        innovation, and creative problem-solving. My goal is to become a full-stack developer who not only writes code
+        but also understands how to drive traffic and visibility to digital platforms.</p>
+
+      <h2>Skills</h2>
+
+      <h3>Coding</h3>
+      <ul style="list-style-type: none;">
+        <li><strong>Languages:</strong>
+          <ul style="list-style-type: disc;">
+            <li>Java Swing</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>MySQL</li>
+            <li>Currently working on PHP</li>
+          </ul>
+        </li>
+        <li><strong>Tools:</strong>
+          <ul style="list-style-type: disc;">
+            <li>IntelliJ IDEA Community</li>
+            <li>VS Code</li>
+            <li>MySQL Workbench</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>SEO</h3>
+      <ul style="list-style-type: none;">
+        <li><strong>Link Builder</strong></li>
+        <li><strong>Outreach Specialist</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+
+      <div class="project">
+        <h3>Employee Management System</h3>
+        <img src="images/ems.PNG" alt="Employee Management System Screenshot" />
+        <p>This desktop-based application provides a full-featured solution for employee record management. The system
+          includes multiple modules such as an introduction screen, login authentication, home dashboard, and CRUD
+          operations like add, view, update, and delete records. It also offers features like searching records and
+          printing reports to assist in administrative tasks effectively.</p>
+        <h4>Technologies Used:</h4>
+        <ul>
+          <li>Java Swing</li>
+          <li>IntelliJ IDEA Community</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>Image Gallery</h3>
+        <img src="images/gallary.JPG" alt="Image Gallery Screenshot" />
+        <p>This is a responsive single-page image gallery website. It features image hover effects, a lightbox preview,
+          arrow navigation, and keyboard controls for seamless browsing. The gallery also includes filter buttons to
+          categorize and display images based on user selection, creating a dynamic and user-friendly interface.</p>
+        <h4>Technologies Used:</h4>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>VS Code</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>Scientific Calculator</h3>
+        <img src="images/calculator.JPG" alt="Scientific Calculator Screenshot" />
+        <p>A web-based scientific calculator that allows users to perform basic arithmetic operations as well as
+          advanced scientific calculations. The calculator features a sleek interface, supports calculation history, and
+          is optimized for both desktop and mobile use. It's designed for students and professionals needing on-the-go
+          calculation power.</p>
+        <h4>Technologies Used:</h4>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>VS Code</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:talhaaleem82@gmail.com">talhaaleem82@gmail.com</a></p>
+      <p>Phone: <a href="tel:+923357977922">+923357977922</a></p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/talha-aleem-21782333b/" target="_blank" title="LinkedIn"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100052816740062" target="_blank" title="Facebook"><i
+            class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/tal_ha_82/" target="_blank" title="Instagram"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/923357977922" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hafiz Talha | All Rights Reserved</p>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+
+</html>

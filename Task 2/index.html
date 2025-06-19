@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>BASIC CALCULATOR</h1>
+  
+<div class="container">  
+  <div class="calculator">
+    <div class="display">
+      <input type="text" id="result" value="0" readonly />
+      <div class="controls">
+        <button onclick="toggleHistory()">🕘 History</button>
+        <button onclick="toggleScientific()">🔁 Sci-Mode</button>
+      </div>
+      <div id="history" class="hidden"></div>
+    </div>
+
+    <div class="buttons" id="main-buttons">
+      <button onclick="clearScreen()">C</button>
+      <button onclick="backspace()">⌫</button>
+      <button onclick="insert('(')">(</button>
+      <button onclick="insert(')')">)</button>
+
+      <button onclick="insert('7')">7</button>
+      <button onclick="insert('8')">8</button>
+      <button onclick="insert('9')">9</button>
+      <button onclick="insert('/')">÷</button>
+
+      <button onclick="insert('4')">4</button>
+      <button onclick="insert('5')">5</button>
+      <button onclick="insert('6')">6</button>
+      <button onclick="insert('*')">×</button>
+
+      <button onclick="insert('1')">1</button>
+      <button onclick="insert('2')">2</button>
+      <button onclick="insert('3')">3</button>
+      <button onclick="insert('-')">−</button>
+
+      <button onclick="insert('0')">0</button>
+      <button onclick="insert('.')">.</button>
+      <button onclick="insert('+')">+</button>
+      <button class="equal" onclick="calculate()">=</button>
+    </div>
+
+    <!-- Scientific buttons - hidden by default -->
+    <div class="buttons scientific hidden" id="sci-buttons">
+      <button onclick="insert('Math.sin(')">sin</button>
+      <button onclick="insert('Math.cos(')">cos</button>
+      <button onclick="insert('Math.tan(')">tan</button>
+      <button onclick="insert('Math.PI')">π</button>
+
+      <button onclick="insert('Math.log10(')">log</button>
+      <button onclick="insert('Math.sqrt(')">√</button>
+      <button onclick="insert('**')">^</button>
+      <button onclick="insert('Math.E')">e</button>
+    </div>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>
